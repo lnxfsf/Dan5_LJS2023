@@ -6,33 +6,21 @@ const addItemForm = document.getElementById("addItemForm");
 const text_in_list = document.getElementsByClassName('delete');
 
 
-
-//console.log(text_in_list[0].parentNode.textContent)
-
-var txs = text_in_list[0].parentNode.textContent;
-
 search.addEventListener('input', () => {
 
     var src = search.value;
-    //console.log(search.value)
-    // console.log(src);
-    // console.log(txs);
 
-    if ( txs.includes(src) ) {
+    for(let i=0;i<text_in_list.length;i++){
+
+        let txs=text_in_list[i].parentNode.textContent;
+
+        txs=txs.slice(0,txs.length-2);
         
-
-        
-        //console.log("hiss");
-        
-
-
+        if (txs.includes(src) ) {
+            console.log(txs);
+        }
     }
-    
 
-
-
-
-    
 })
 
 
