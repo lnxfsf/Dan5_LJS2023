@@ -6,6 +6,9 @@ const addItemForm = document.getElementById("addItemForm");
 const text_in_list = document.getElementsByClassName('delete');
 
 
+const dropdown = document.getElementsByClassName('dropdown');
+
+
 search.addEventListener('input', () => {
 
     var src = search.value;
@@ -18,7 +21,22 @@ search.addEventListener('input', () => {
         
         if (txs.includes(src) ) {
             console.log(txs);
+            
+            
+
+            dropdown[0].innerHTML = '';
+            
+            const newItem = document.createElement("p");
+            newItem.textContent = txs;
+
+            dropdown[0].appendChild(newItem);
+            dropdown[0].setAttribute("style","display:block;");
+
+            
         }
+        
+
+        
     }
 
 })
