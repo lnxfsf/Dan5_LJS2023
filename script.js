@@ -11,6 +11,8 @@ const dropdown = document.getElementsByClassName('dropdown');
 
 search.addEventListener('input', () => {
 
+            dropdown[0].innerHTML = '';
+
     var src = search.value;
 
     for(let i=0;i<text_in_list.length;i++){
@@ -24,7 +26,6 @@ search.addEventListener('input', () => {
             
             
 
-            dropdown[0].innerHTML = '';
             
             const newItem = document.createElement("p");
             newItem.textContent = txs;
