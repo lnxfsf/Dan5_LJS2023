@@ -19,17 +19,28 @@ search.addEventListener('input', () => {
 
         let txs=text_in_list[i].parentNode.textContent;
 
-        txs=txs.slice(0,txs.length-2);
-        
+        txs=txs.slice(0,txs.length-1);
+
         if (txs.includes(src) ) {
-            console.log(txs);
                         
             const newItem = document.createElement("p");
             newItem.setAttribute("class","dropdown_element");
             newItem.textContent = txs;
             
             newItem.addEventListener('click',() =>{
-                search.value=txs;        
+                search.value=txs; 
+                
+                let lista=document.getElementById("list");
+                let list_elements=lista.getElementsByTagName("li");
+                for(let i=0;i<list_elements.length;i++){
+
+                    let string=list_elements[i].textContent;
+                    string=string.slice(0,string.length-1);
+                    if(txs!=string){
+                        list_elements[i].style.display = "none";
+                    }
+                }
+
             })
 
             dropdown.appendChild(newItem);
