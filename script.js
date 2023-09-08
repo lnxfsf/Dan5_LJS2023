@@ -2,16 +2,16 @@
 const search = document.getElementById('search');
 const list = document.getElementById('list');
 const addItemForm = document.getElementById("addItemForm");
-    
-const text_in_list = document.getElementsByClassName('delete');
 
-
-const dropdown = document.getElementsByClassName('dropdown');
-
+var dropdown=document.getElementsByClassName("dropdown")[0];
+var p_elements=dropdown.getElementsByTagName("p");
 
 search.addEventListener('input', () => {
 
-            dropdown[0].innerHTML = '';
+    let text_in_list = document.getElementsByClassName('delete');
+    //let dropdown = document.getElementsByClassName('dropdown');
+
+    dropdown.innerHTML = '';
 
     var src = search.value;
 
@@ -23,26 +23,22 @@ search.addEventListener('input', () => {
         
         if (txs.includes(src) ) {
             console.log(txs);
-            
-            
-
-            
+                        
             const newItem = document.createElement("p");
+            newItem.setAttribute("class","dropdown_element");
             newItem.textContent = txs;
-
-            dropdown[0].appendChild(newItem);
-            dropdown[0].setAttribute("style","display:block;");
-
             
-        }
-        
+            newItem.addEventListener('click',() =>{
+                search.value=txs;        
+            })
 
-        
+            dropdown.appendChild(newItem);
+            dropdown.setAttribute("style","display:block;");
+        }
+      
     }
 
 })
-
-
 
 
 addItemForm.addEventListener("submit", function (event) {
