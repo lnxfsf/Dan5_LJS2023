@@ -1,0 +1,107 @@
+
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles to the header */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the search input */
+#add {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Style the main container */
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style the "Add Items" section */
+.add-items {
+    margin-bottom: 20px;
+}
+
+.add-items h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#addItemForm {
+    display: flex;
+}
+
+#itemText {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Style the "Items" section */
+.item-list h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+ul#list {
+    list-style-type: none;
+}
+
+ul#list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+ul#list li button.delete {
+    background-color: #ff4444;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+#flexs {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5em;
+    margin: 1em;
+
+
+    
+}
+
+
+#submit {
+    border-radius: 5px;
+    border: 0;
+    padding: 1em;
+    background-color: #2196f3;
+    color: white;
+
+}
