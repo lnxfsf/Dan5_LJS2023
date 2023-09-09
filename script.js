@@ -94,22 +94,29 @@ search.addEventListener('blur',() => {
 
 
     if (search.value.trim() === '') {
-                // Clear the input value
+        // Clear the input value
         //
-                search.value = '';
-        
-
-                
-            const customEvent = new Event('input', {
-                bubbles: true,
-                cancelable: true,
-            });
-        
         search.value = '';
+        
 
-            search.dispatchEvent(customEvent);
 
+    //search.dispatchEvent(new Event('input', { bubbles: true }));
+        
+    let listak = document.getElementById("list");
+    let list_elementsk = listak.getElementsByTagName("li");
+
+        
+        for (let i = 0; i < list_elementsk.length; i++) {
+
+            if (true) {
+                list_elementsk[i].style.display = "block";
             }
+        }
+
+
+
+
+    }
     
 })
 
