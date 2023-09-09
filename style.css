@@ -119,17 +119,37 @@ ul#list li button.delete {
 
 
 .dropdown_show {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 0.5em;
+    margin: 1em;
+
+
     
 }
 
 
 .dropdown_element {
     cursor: pointer;
-    margin: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0.4em;
+
+    /* margin: 0.5em; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
 
 
     
+}
+
+
+
+
+
+.selected {
+    background-color: #FFC107; /* Change the color as desired */
 }

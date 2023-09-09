@@ -8,6 +8,58 @@ var dropdown=document.getElementsByClassName("dropdown")[0];
 var p_elements=dropdown.getElementsByTagName("p");
 
 
+
+// ovo 
+let selectedElement = null;
+
+// treba da ga pristupimo i van 'input' event listenera, za ovaj 'keydown'
+var src = '';
+
+
+// ovo 
+ document.addEventListener('keydown', (e) => {
+            if (selectedElement) {
+                selectedElement.classList.remove('selected');
+            }
+
+            if (e.key === 'ArrowDown') {
+                // Move to the next <p> element
+                selectedElement = selectedElement ? selectedElement.nextElementSibling : dropdown.firstElementChild;
+
+
+                console.log(selectedElement.textContent);
+                
+                
+            } else if (e.key === 'ArrowUp') {
+                // Move to the previous <p> element
+                selectedElement = selectedElement ? selectedElement.previousElementSibling : dropdown.lastElementChild;
+                console.log(selectedElement.textContent);
+
+            } else if (e.key === 'Enter' ) {
+                        // Enter key was pressed, you can add your code here
+                       console.log('Enter key was pressed');
+                //
+
+                
+                        let text_in_list = document.getElementsByClassName('delete');
+
+                        let txz=selectedElement.textContent;
+
+                        search.value=txz; 
+                        src=txz;
+
+
+                    }
+
+            if (selectedElement) {
+                selectedElement.classList.add('selected');
+            }
+
+        });
+
+
+
+
 function search_hide_elements(txs, show) {
 
     let lista = document.getElementById("list");
@@ -45,10 +97,12 @@ search.addEventListener('input', () => {
 
     dropdown.innerHTML = '';
 
-    var src = search.value;
+    // tekst od <input> elementa
+    src = search.value;
 
     for(let i=0;i<text_in_list.length;i++){
 
+        // ovaj txt mora ostati u svoj scope unutar ovog loop-a. ovo je tekst od <li> elementa
         let txs=text_in_list[i].parentNode.textContent;
 
         txs=txs.slice(0,txs.length-1);
@@ -71,12 +125,19 @@ search.addEventListener('input', () => {
                 
 
 
+                // ovo 
+                if (selectedElement) {
+                    selectedElement.classList.remove('selected');
+                }
+                selectedElement.classList.add('selected');
+                
                 
                 
 
 
 
             })
+            
 
             dropdown.appendChild(newItem);
             dropdown.setAttribute("class","dropdown_show");
@@ -124,6 +185,7 @@ search.addEventListener('blur',() => {
     }
     
 })
+
 
 
 addItemForm.addEventListener("submit", function (event) {
