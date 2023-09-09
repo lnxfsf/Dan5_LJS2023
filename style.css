@@ -107,10 +107,29 @@ ul#list li button.delete {
 }
 
 
+
+
 .dropdown {
 
    display: none; 
    
 
    
+}
+
+
+.dropdown_show {
+    display: block;
+    
+}
+
+
+.dropdown_element {
+    cursor: pointer;
+    margin: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    
 }

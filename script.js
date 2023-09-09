@@ -79,7 +79,7 @@ search.addEventListener('input', () => {
             })
 
             dropdown.appendChild(newItem);
-            dropdown.setAttribute("style","display:block;");
+            dropdown.setAttribute("class","dropdown_show");
         } else if (txs === ''){
 
                 search_hide_elements(txs,false);
@@ -112,6 +112,11 @@ search.addEventListener('blur',() => {
                 list_elementsk[i].style.display = "block";
             }
         }
+        
+
+    // da sakrije dropdown kad je prazan...
+    
+    dropdown.setAttribute("class","dropdown");
 
 
 
