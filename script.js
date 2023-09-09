@@ -1,10 +1,42 @@
 
+
 const search = document.getElementById('search');
 const list = document.getElementById('list');
 const addItemForm = document.getElementById("addItemForm");
 
 var dropdown=document.getElementsByClassName("dropdown")[0];
 var p_elements=dropdown.getElementsByTagName("p");
+
+
+function search_hide_elements(txs, show) {
+
+    let lista = document.getElementById("list");
+    let list_elements = lista.getElementsByTagName("li");
+
+    if (show) {
+
+        for (let i = 0; i < list_elements.length; i++) {
+
+            let string = list_elements[i].textContent;
+            string = string.slice(0, string.length - 1);
+            if (txs != string) {
+                list_elements[i].style.display = "none";
+            }
+        }
+
+    }else {
+
+        // da prikaze elemente
+        for (let i = 0; i < list_elements.length; i++) {
+
+            if (true) {
+                list_elements[i].style.display = "block";
+            }
+        }
+        
+    }
+}
+
 
 search.addEventListener('input', () => {
 
@@ -19,25 +51,66 @@ search.addEventListener('input', () => {
 
         let txs=text_in_list[i].parentNode.textContent;
 
-        txs=txs.slice(0,txs.length-2);
-        
+        txs=txs.slice(0,txs.length-1);
+
         if (txs.includes(src) ) {
-            console.log(txs);
                         
             const newItem = document.createElement("p");
             newItem.setAttribute("class","dropdown_element");
             newItem.textContent = txs;
             
             newItem.addEventListener('click',() =>{
-                search.value=txs;        
+                search.value=txs; 
+                
+
+                
+            // na false resetuje da prikaze sve... da resetuje sve prvo
+                search_hide_elements(txs,false);
+                
+                search_hide_elements(txs,true);
+                
+
+
+                
+                
+
+
+
             })
 
             dropdown.appendChild(newItem);
             dropdown.setAttribute("style","display:block;");
+        } else if (txs === ''){
+
+                search_hide_elements(txs,false);
+            
         }
       
     }
 
+})
+
+search.addEventListener('blur',() => {
+
+
+    if (search.value.trim() === '') {
+                // Clear the input value
+        //
+                search.value = '';
+        
+
+                
+            const customEvent = new Event('input', {
+                bubbles: true,
+                cancelable: true,
+            });
+        
+        search.value = '';
+
+            search.dispatchEvent(customEvent);
+
+            }
+    
 })
 
 
@@ -69,5 +142,4 @@ list.addEventListener("click", function (event) {
         list.removeChild(listItem);
     }
 });
-
 
