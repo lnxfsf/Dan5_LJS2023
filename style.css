@@ -153,3 +153,32 @@ ul#list li button.delete {
 .selected {
     background-color: #FFC107; /* Change the color as desired */
 }
+
+
+input {
+    border-radius: 5px;
+    border: 0;
+    padding: 0.5em;
+    margin-top: 0.5em;
+}
+
+
+
+#list {
+
+    background-color: #333333;
+    padding-left: 10em;
+    padding-right: 10em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 5px;
+
+}
+
+#list > li {
+    text-align: center;
+    line-height: 2;
+    color: white;
+
+
+}

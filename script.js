@@ -9,11 +9,14 @@ var p_elements=dropdown.getElementsByTagName("p");
 
 
 
-// ovo 
 let selectedElement = null;
 
 // treba da ga pristupimo i van 'input' event listenera, za ovaj 'keydown'
 var src = '';
+
+
+
+
 
 
 
@@ -208,6 +211,8 @@ list.addEventListener("click", function (event) {
         const listItem = event.target.parentElement;
 
         list.removeChild(listItem);
+        
+
     }
 });
 
