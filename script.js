@@ -16,46 +16,40 @@ let selectedElement = null;
 var src = '';
 
 
-// ovo 
- document.addEventListener('keydown', (e) => {
-            if (selectedElement) {
-                selectedElement.classList.remove('selected');
-            }
-
-            if (e.key === 'ArrowDown') {
-                // Move to the next <p> element
-                selectedElement = selectedElement ? selectedElement.nextElementSibling : dropdown.firstElementChild;
 
 
-                console.log(selectedElement.textContent);
+document.addEventListener('keydown', (e) => {
+    if (selectedElement) {
+        selectedElement.classList.remove('selected');
+    }
+
+    const pCount = p_elements.length; 
+
+    if (e.key === 'ArrowDown') {
+        const nextIndex = selectedElement ? (Array.from(p_elements).indexOf(selectedElement) + 1) % pCount : 0;
+        selectedElement = p_elements[nextIndex];
+    } else if (e.key === 'ArrowUp') {
+        const prevIndex = selectedElement ? (Array.from(p_elements).indexOf(selectedElement) - 1 + pCount) % pCount : pCount - 1;
+        selectedElement = p_elements[prevIndex];
+    } else if (e.key === 'Enter') {
+        console.log('Enter key was pressed');
+        let txz = selectedElement.textContent;
+        search.value = txz;
+        src = txz;
+        
+            // na false resetuje da prikaze sve... da resetuje sve prvo
+                search_hide_elements(txz,false);
                 
-                
-            } else if (e.key === 'ArrowUp') {
-                // Move to the previous <p> element
-                selectedElement = selectedElement ? selectedElement.previousElementSibling : dropdown.lastElementChild;
-                console.log(selectedElement.textContent);
+                search_hide_elements(txz,true);
 
-            } else if (e.key === 'Enter' ) {
-                        // Enter key was pressed, you can add your code here
-                       console.log('Enter key was pressed');
-                //
+        
+    }
 
-                
-                        let text_in_list = document.getElementsByClassName('delete');
+    if (selectedElement) {
+        selectedElement.classList.add('selected');
+    }
+});
 
-                        let txz=selectedElement.textContent;
-
-                        search.value=txz; 
-                        src=txz;
-
-
-                    }
-
-            if (selectedElement) {
-                selectedElement.classList.add('selected');
-            }
-
-        });
 
 
 
