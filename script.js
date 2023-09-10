@@ -7,19 +7,10 @@ const addItemForm = document.getElementById("addItemForm");
 var dropdown=document.getElementsByClassName("dropdown")[0];
 var p_elements=dropdown.getElementsByTagName("p");
 
-
-
 let selectedElement = null;
 
 // treba da ga pristupimo i van 'input' event listenera, za ovaj 'keydown'
 var src = '';
-
-
-
-
-
-
-
 
 document.addEventListener('keydown', (e) => {
     if (selectedElement) {
@@ -43,18 +34,13 @@ document.addEventListener('keydown', (e) => {
             // na false resetuje da prikaze sve... da resetuje sve prvo
                 search_hide_elements(txz,false);
                 
-                search_hide_elements(txz,true);
-
-        
+                search_hide_elements(txz,true);        
     }
 
     if (selectedElement) {
         selectedElement.classList.add('selected');
     }
 });
-
-
-
 
 
 function search_hide_elements(txs, show) {
@@ -113,14 +99,10 @@ search.addEventListener('input', () => {
             newItem.addEventListener('click',() =>{
                 search.value=txs; 
                 
-
-                
             // na false resetuje da prikaze sve... da resetuje sve prvo
                 search_hide_elements(txs,false);
                 
                 search_hide_elements(txs,true);
-                
-
 
                 // ovo 
                 if (selectedElement) {
@@ -128,11 +110,6 @@ search.addEventListener('input', () => {
                 }
                 selectedElement.classList.add('selected');
                 
-                
-                
-
-
-
             })
             
 
@@ -156,8 +133,6 @@ search.addEventListener('blur',() => {
         //
         search.value = '';
         
-
-
     //search.dispatchEvent(new Event('input', { bubbles: true }));
         
     let listak = document.getElementById("list");
@@ -175,14 +150,12 @@ search.addEventListener('blur',() => {
     // da sakrije dropdown kad je prazan...
     
     dropdown.setAttribute("class","dropdown");
-
-
-
-
     }
     
 })
 
+//za cuvanje u localstorage
+document.getElementById("list").innerHTML=localStorage.getItem("list_data");
 
 
 addItemForm.addEventListener("submit", function (event) {
@@ -191,14 +164,13 @@ addItemForm.addEventListener("submit", function (event) {
         const newItemText = itemText.value.trim();
 
         if (newItemText) {
-            
-
             const newItem = document.createElement("li");
-            
             
             newItem.innerHTML = `${newItemText} <button class="delete">X</button>`;
 
             list.appendChild(newItem);
+
+            localStorage.setItem("list_data",document.getElementById("list").innerHTML);
 
             itemText.value = ""; // Clear the input field
         }
@@ -212,7 +184,6 @@ list.addEventListener("click", function (event) {
 
         list.removeChild(listItem);
         
-
+        localStorage.setItem("list_data",document.getElementById("list").innerHTML);
     }
 });
-

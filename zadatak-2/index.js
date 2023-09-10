@@ -47,9 +47,5 @@ document.addEventListener('DOMContentLoaded', function(){
             boxContainer.removeChild(minusBox);
         }
     })
-
-  
-    
-
 });
 
